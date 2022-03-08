@@ -98,7 +98,7 @@ pipeline {
                          sh'docker login -u ${DOCKERHUB_CREDENTIALS} -p ${DOCKERHUB_CREDENTIALS}'
                          sh'docker pull rzdin/task4:${BUILD_NUMBER}'
                          sh'docker run --name Task-4-Container -p 80:80 -d rzdin/task4:${BUILD_NUMBER}'
-                    }
+                    
                }           
            }
             post { // Post Stage defined to send an email notification to the developer about the the deployment in dev stage environment.

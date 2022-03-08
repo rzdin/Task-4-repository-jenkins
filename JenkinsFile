@@ -96,9 +96,9 @@ pipeline {
             
                 script{// This script pull the build image and run it inside a docker conatainer on the same Ec2 server used for jenkins.
                          docker.withRegistry( 'https://registry.hub.docker.com',  DOCKERHUB_CREDENTIALS ) { 
-                         image = docker.image('rzdin/task4:${BUILD_NUMBER}')
+                         image = docker.image("rzdin/task4:${BUILD_NUMBER}", '.')
                          image.pull()
-                    sh 'docker run --name Task-4-Container -p 80:80 -d rzdin/task4:${BUILD_NUMBER}'
+                         sh 'docker run --name Task-4-Container -p 80:80 -d rzdin/task4:${BUILD_NUMBER}'
                     }
                }           
            }

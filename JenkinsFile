@@ -101,7 +101,7 @@ pipeline {
            }
             post { // Post Stage defined to send an email notification to the developer about the the deployment in dev stage environment.
                 always {
-                    emailext attachLog: true, body: 'This is a docker run log email ', subject: '[Jenkins]${currentBuild.fullDisplayName}', to: 'ziauddinrana3361@gmail.com'
+                    emailext attachLog: true, body: 'This is a docker run log email ', subject: '[Jenkins]${BUILD_NUMBER}', to: 'ziauddinrana3361@gmail.com'
              }
          }
      } // This Stage five is and Approval stage for the for the deployment in the Prod environment. (Prod envitonment here is S3 bucket)
@@ -156,7 +156,7 @@ pipeline {
      }
             post { // Post Stage defined to send an email notification to the developer about the the deployment of the application in Prod environment.
                 always {
-                    emailext attachLog: true, body: 'This is a artifact pushed log email ', subject: 'artifact run status ', to: 'ziauddinrana3361@gmail.com'
+                    emailext attachLog: true, body: 'This is a artifact pushed log email ', subject: 'artifact Deployed Status ${BUID_NUMBER} ', to: 'ziauddinrana3361@gmail.com'
                    
               }
          }

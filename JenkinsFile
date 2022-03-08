@@ -128,7 +128,7 @@ pipeline {
       // but in this case it just removes the container fro the dev stage. 
       stage('abortdeploy'){
            when{
-               environment name:'APPROVED_DEPLOY',value:'no'
+               environment name:'APPROVED_DEPLOY',value:'reject'
            }
            steps{
                sh 'docker container rm -f Task-4-Container'
@@ -143,7 +143,7 @@ pipeline {
         stage('S3 Prod Env'){ 
         
           when {
-                   environment name:'APPROVED_DEPLOY', value: 'yes'
+                   environment name:'APPROVED_DEPLOY', value: 'approve'
                 }
               
              

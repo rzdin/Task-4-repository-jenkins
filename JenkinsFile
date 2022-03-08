@@ -151,6 +151,7 @@ pipeline {
             steps{
                  sh'''#!/bin/bash
                     mv ./target/Task4Demo-0.0.1-${BUILD_NUMBER}-SNAPSHOT.jar  .
+                    
                  '''
                    withAWS(credentials: "${aws_credential}", region: "${region}"){
                      

@@ -115,7 +115,7 @@ pipeline {
                           emailext mimeType: 'text/html',
                                    subject: "[Jenkins]${currentBuild.fullDisplayName}",
                                    to: "ziauddinrana3361@gmail.com",
-                                   body: '''<a href="${BUILD_URL}input"</a>'''
+                                   body: '''<a href="${BUILD_URL}input">${BUILD_URL}</a>'''
                           env.APPROVED_DEPLOY = input message: 'User input required',
                           parameters: [choice(name: 'Deploy?', choices: 'no\nyes', description: 'Choose "yes" if you want to deploy this build')]
                         

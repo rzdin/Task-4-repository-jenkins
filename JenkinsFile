@@ -8,7 +8,7 @@
 # -------   ----        ------------    -------
 # 1.0       07/03/2022      rz          initial revision
 #=============================================================================
-# This file contains stage for the implementation of jenkins CI/CD pipline
+# This file contains stages for the implementation of jenkins CI/CD pipline
 #=============================================================================
 */
 
@@ -115,9 +115,9 @@ pipeline {
                           emailext mimeType: 'text/html',
                                    subject: "[Jenkins]${currentBuild.fullDisplayName}",
                                    to: "ziauddinrana3361@gmail.com",
-                                   body: '''<a href="${BUILD_URL}input">${BUILD_URL}</a>'''
+                                   body: '''<a href="${BUILD_URL}input">click to approve ${BUILD_URL}</a>'''
                           env.APPROVED_DEPLOY = input message: 'User input required',
-                          parameters: [choice(name: 'Deploy?', choices: 'no\nyes', description: 'Choose "yes" if you want to deploy this build')]
+                          parameters: [choice(name: 'Deploy?', choices: 'reject\napprove', description: 'Choose "approve" if you want to deploy this build')]
                         
                          
                          

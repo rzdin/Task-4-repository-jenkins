@@ -1,7 +1,6 @@
 image: maven:3-jdk-8
 
 stages:
-    - build
     - test
 
 variables:
@@ -12,14 +11,6 @@ cache:
     - .m2/repository/
     - target/
 
-maven-build-stage:
-    stage: build
-    script: 
-      - mvn clean install
-      - mvn package -B
-    artifacts:
-      paths:
-        - target/demo-0.0.1-SNAPSHOT.jar
    
 test:
   stage: test
